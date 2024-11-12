@@ -1,7 +1,8 @@
 package com.github.ps.common.exception;
 
-import com.github.paicoding.forum.api.model.vo.Status;
-import com.github.paicoding.forum.api.model.vo.constants.StatusEnum;
+
+import com.github.ps.common.vo.Status;
+import com.github.ps.common.vo.constants.StatusEnum;
 import lombok.Getter;
 
 /**

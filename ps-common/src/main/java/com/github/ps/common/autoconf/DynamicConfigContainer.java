@@ -1,7 +1,7 @@
 package com.github.ps.common.autoconf;
 
-import com.github.paicoding.forum.core.util.JsonUtil;
-import com.github.paicoding.forum.core.util.SpringUtil;
+import com.github.ps.common.util.JsonUtil;
+import com.github.ps.common.util.SpringUtil;
 import com.google.common.collect.Maps;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;

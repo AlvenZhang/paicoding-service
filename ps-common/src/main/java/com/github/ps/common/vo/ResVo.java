@@ -1,6 +1,6 @@
 package com.github.ps.common.vo;
 
-import com.github.paicoding.forum.api.model.vo.constants.StatusEnum;
+import com.github.ps.common.vo.constants.StatusEnum;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

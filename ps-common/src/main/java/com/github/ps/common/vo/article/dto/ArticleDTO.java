@@ -1,9 +1,10 @@
 package com.github.ps.common.vo.article.dto;
 
-import com.github.paicoding.forum.api.model.enums.ArticleReadTypeEnum;
-import com.github.paicoding.forum.api.model.enums.SourceTypeEnum;
-import com.github.paicoding.forum.api.model.vo.user.dto.ArticleFootCountDTO;
-import com.github.paicoding.forum.api.model.vo.user.dto.SimpleUserInfoDTO;
+
+import com.github.ps.common.enums.ArticleReadTypeEnum;
+import com.github.ps.common.enums.SourceTypeEnum;
+import com.github.ps.common.vo.user.dto.ArticleFootCountDTO;
+import com.github.ps.common.vo.user.dto.SimpleUserInfoDTO;
 import lombok.Data;
 
 import java.io.Serializable;

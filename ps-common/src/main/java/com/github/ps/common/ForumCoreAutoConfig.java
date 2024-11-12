@@ -1,9 +1,10 @@
 package com.github.ps.common;
 
+
 import com.github.benmanes.caffeine.cache.Caffeine;
-import com.github.paicoding.forum.core.cache.RedisClient;
-import com.github.paicoding.forum.core.config.ProxyProperties;
-import com.github.paicoding.forum.core.net.ProxyCenter;
+import com.github.ps.common.cache.RedisClient;
+import com.github.ps.common.config.ProxyProperties;
+import com.github.ps.common.net.ProxyCenter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cache.CacheManager;
@@ -22,7 +23,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Configuration
 @EnableConfigurationProperties(ProxyProperties.class)
-@ComponentScan(basePackages = "com.github.paicoding.forum.core")
+@ComponentScan(basePackages = "com.github.ps.common")
 public class ForumCoreAutoConfig {
     @Autowired
     private ProxyProperties proxyProperties;

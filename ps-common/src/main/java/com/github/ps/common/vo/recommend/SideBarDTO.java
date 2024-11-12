@@ -1,6 +1,6 @@
 package com.github.ps.common.vo.recommend;
 
-import com.github.paicoding.forum.api.model.enums.SidebarStyleEnum;
+import com.github.ps.common.enums.SidebarStyleEnum;
 import lombok.Data;
 import lombok.experimental.Accessors;
 

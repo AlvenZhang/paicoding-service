@@ -1,8 +1,9 @@
 package com.github.ps.common.util.id.snowflake;
 
-import com.github.paicoding.forum.core.async.AsyncUtil;
-import com.github.paicoding.forum.core.util.DateUtil;
-import com.github.paicoding.forum.core.util.IpUtil;
+
+import com.github.ps.common.async.AsyncUtil;
+import com.github.ps.common.util.DateUtil;
+import com.github.ps.common.util.IpUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 

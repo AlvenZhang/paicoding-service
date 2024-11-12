@@ -1,6 +1,6 @@
 package com.github.ps.common.util.id.snowflake;
 
-import com.github.paicoding.forum.core.util.DateUtil;
+import com.github.ps.common.util.DateUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.*;

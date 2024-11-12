@@ -2,7 +2,7 @@ package com.github.ps.common.dal;
 
 import com.alibaba.druid.pool.DruidPooledPreparedStatement;
 import com.baomidou.mybatisplus.core.MybatisParameterHandler;
-import com.github.paicoding.forum.core.util.DateUtil;
+import com.github.ps.common.util.DateUtil;
 import com.mysql.cj.MysqlConnection;
 import com.zaxxer.hikari.pool.HikariProxyConnection;
 import com.zaxxer.hikari.pool.HikariProxyPreparedStatement;

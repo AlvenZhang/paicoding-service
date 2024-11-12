@@ -1,9 +1,10 @@
 package com.github.ps.common.vo.article;
 
-import com.github.paicoding.forum.api.model.enums.ArticleReadTypeEnum;
-import com.github.paicoding.forum.api.model.enums.ArticleTypeEnum;
-import com.github.paicoding.forum.api.model.enums.PushStatusEnum;
-import com.github.paicoding.forum.api.model.enums.SourceTypeEnum;
+
+import com.github.ps.common.enums.ArticleReadTypeEnum;
+import com.github.ps.common.enums.ArticleTypeEnum;
+import com.github.ps.common.enums.PushStatusEnum;
+import com.github.ps.common.enums.SourceTypeEnum;
 import lombok.Data;
 
 import java.io.Serializable;

@@ -1,7 +1,7 @@
 package com.github.ps.common.util;
 
 import com.github.hui.quick.plugin.base.file.FileWriteUtil;
-import com.github.paicoding.forum.core.region.IpRegionInfo;
+import com.github.ps.common.region.IpRegionInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;

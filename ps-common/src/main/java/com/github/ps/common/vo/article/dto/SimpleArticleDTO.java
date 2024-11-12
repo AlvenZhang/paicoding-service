@@ -1,6 +1,5 @@
 package com.github.ps.common.vo.article.dto;
 
-import com.github.paicoding.forum.api.model.enums.column.ColumnArticleReadEnum;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.experimental.Accessors;

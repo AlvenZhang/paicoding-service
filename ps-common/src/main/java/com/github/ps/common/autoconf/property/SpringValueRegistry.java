@@ -1,6 +1,6 @@
 package com.github.ps.common.autoconf.property;
 
-import com.github.paicoding.forum.core.util.SpringUtil;
+import com.github.ps.common.util.SpringUtil;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.MethodParameter;

@@ -1,8 +1,9 @@
 package com.github.ps.common.vo.article.dto;
 
-import com.github.paicoding.forum.api.model.enums.column.ColumnTypeEnum;
-import com.github.paicoding.forum.api.model.vo.comment.dto.TopCommentDTO;
-import com.github.paicoding.forum.api.model.vo.user.dto.SimpleUserInfoDTO;
+
+import com.github.ps.common.enums.column.ColumnTypeEnum;
+import com.github.ps.common.vo.comment.dto.TopCommentDTO;
+import com.github.ps.common.vo.user.dto.SimpleUserInfoDTO;
 import lombok.Data;
 
 import java.util.List;

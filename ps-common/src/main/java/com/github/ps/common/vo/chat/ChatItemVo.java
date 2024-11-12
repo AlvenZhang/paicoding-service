@@ -1,6 +1,6 @@
 package com.github.ps.common.vo.chat;
 
-import com.github.paicoding.forum.api.model.enums.ChatAnswerTypeEnum;
+import com.github.ps.common.enums.ChatAnswerTypeEnum;
 import lombok.Data;
 import lombok.experimental.Accessors;
 

@@ -1,6 +1,6 @@
 package com.github.ps.common.mdc;
 
-import com.github.paicoding.forum.core.util.IpUtil;
+import com.github.ps.common.util.IpUtil;
 import com.google.common.base.Splitter;
 import lombok.extern.slf4j.Slf4j;
 

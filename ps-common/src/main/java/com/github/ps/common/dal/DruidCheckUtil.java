@@ -1,6 +1,7 @@
 package com.github.ps.common.dal;
 
-import com.github.hui.quick.plugin.qrcode.util.ClassUtils;
+
+import org.springframework.util.ClassUtils;
 
 /**
  * @author YiHui

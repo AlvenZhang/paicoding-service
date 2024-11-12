@@ -1,7 +1,8 @@
 package com.github.ps.common.vo.user.dto;
 
-import com.github.paicoding.forum.api.model.entity.BaseDTO;
-import com.github.paicoding.forum.api.model.enums.user.UserAIStatEnum;
+
+import com.github.ps.common.entity.BaseDTO;
+import com.github.ps.common.enums.user.UserAIStatEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

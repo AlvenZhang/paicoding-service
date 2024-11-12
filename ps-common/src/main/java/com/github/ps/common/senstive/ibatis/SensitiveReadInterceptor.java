@@ -3,7 +3,7 @@ package com.github.ps.common.senstive.ibatis;
 
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import com.github.paicoding.forum.core.senstive.SensitiveService;
+import com.github.ps.common.senstive.SensitiveService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ClassUtils;
 import org.apache.ibatis.executor.resultset.ResultSetHandler;

@@ -1,6 +1,6 @@
 package com.github.ps.common.vo.rank.dto;
 
-import com.github.paicoding.forum.api.model.enums.rank.ActivityRankTimeEnum;
+import com.github.ps.common.enums.rank.ActivityRankTimeEnum;
 import lombok.Data;
 
 import java.util.List;

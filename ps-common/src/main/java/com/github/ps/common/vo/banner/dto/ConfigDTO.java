@@ -1,7 +1,7 @@
 package com.github.ps.common.vo.banner.dto;
 
-import com.github.paicoding.forum.api.model.entity.BaseDTO;
-import com.github.paicoding.forum.api.model.enums.ConfigTagEnum;
+import com.github.ps.common.entity.BaseDTO;
+import com.github.ps.common.enums.ConfigTagEnum;
 import lombok.Data;
 
 /**

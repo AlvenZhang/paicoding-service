@@ -1,6 +1,6 @@
 package com.github.ps.common.vo.rank.dto;
 
-import com.github.paicoding.forum.api.model.vo.user.dto.SimpleUserInfoDTO;
+import com.github.ps.common.vo.user.dto.SimpleUserInfoDTO;
 import lombok.Data;
 import lombok.experimental.Accessors;
 

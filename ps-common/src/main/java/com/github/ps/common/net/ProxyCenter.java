@@ -2,7 +2,7 @@ package com.github.ps.common.net;
 
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
-import com.github.paicoding.forum.core.config.ProxyProperties;
+import com.github.ps.common.config.ProxyProperties;
 
 import java.net.InetSocketAddress;
 import java.net.Proxy;

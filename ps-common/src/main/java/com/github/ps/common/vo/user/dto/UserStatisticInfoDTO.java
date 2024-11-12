@@ -1,6 +1,6 @@
 package com.github.ps.common.vo.user.dto;
 
-import com.github.paicoding.forum.api.model.vo.article.dto.YearArticleDTO;
+import com.github.ps.common.vo.article.dto.YearArticleDTO;
 import lombok.Data;
 import lombok.ToString;
 

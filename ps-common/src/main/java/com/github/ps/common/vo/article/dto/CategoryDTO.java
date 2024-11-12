@@ -1,6 +1,6 @@
 package com.github.ps.common.vo.article.dto;
 
-import com.github.paicoding.forum.api.model.enums.PushStatusEnum;
+import com.github.ps.common.enums.PushStatusEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

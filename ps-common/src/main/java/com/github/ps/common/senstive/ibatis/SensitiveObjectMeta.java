@@ -1,6 +1,6 @@
 package com.github.ps.common.senstive.ibatis;
 
-import com.github.paicoding.forum.core.senstive.ano.SensitiveField;
+import com.github.ps.common.senstive.ano.SensitiveField;
 import lombok.Data;
 
 import java.lang.reflect.Field;

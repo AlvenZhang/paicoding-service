@@ -4,7 +4,7 @@ import cn.hutool.core.thread.ExecutorBuilder;
 import cn.hutool.core.util.ArrayUtil;
 import com.alibaba.ttl.TransmittableThreadLocal;
 import com.alibaba.ttl.threadpool.TtlExecutors;
-import com.github.paicoding.forum.core.util.EnvUtil;
+import com.github.ps.common.util.EnvUtil;
 import com.google.common.util.concurrent.SimpleTimeLimiter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.CollectionUtils;

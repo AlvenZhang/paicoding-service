@@ -1,8 +1,9 @@
 package com.github.ps.common.context;
 
 import com.alibaba.ttl.TransmittableThreadLocal;
-import com.github.paicoding.forum.api.model.vo.seo.Seo;
-import com.github.paicoding.forum.api.model.vo.user.dto.BaseUserInfoDTO;
+
+import com.github.ps.common.vo.seo.Seo;
+import com.github.ps.common.vo.user.dto.BaseUserInfoDTO;
 import lombok.Data;
 
 import java.security.Principal;

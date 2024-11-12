@@ -1,11 +1,12 @@
 package com.github.ps.common.util.id;
 
-import com.github.paicoding.forum.core.async.AsyncUtil;
-import com.github.paicoding.forum.core.util.CompressUtil;
-import com.github.paicoding.forum.core.util.id.snowflake.PaiSnowflakeIdGenerator;
-import com.github.paicoding.forum.core.util.id.snowflake.SnowflakeProducer;
 
-import static com.github.paicoding.forum.core.util.CompressUtil.int2str;
+import com.github.ps.common.async.AsyncUtil;
+import com.github.ps.common.util.CompressUtil;
+import com.github.ps.common.util.id.snowflake.PaiSnowflakeIdGenerator;
+import com.github.ps.common.util.id.snowflake.SnowflakeProducer;
+
+import static com.github.ps.common.util.CompressUtil.int2str;
 
 /**
  * @author YiHui
@@ -32,7 +33,7 @@ public class IdUtil {
      * @return
      */
     public static String genStrId() {
-        return CompressUtil.int2str(genId());
+        return int2str(genId());
     }
 
     public static void main(String[] args) {
