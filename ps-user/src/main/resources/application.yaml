@@ -1,0 +1,12 @@
+server:
+  port: 8200
+
+
+
+spring:
+  application:
+    name: ps-user
+#  datasource: #单数据源
+#    url: jdbc:mysql://192.168.56.102:3306/${database.name}?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+#    username: root
+#    password: 123456
