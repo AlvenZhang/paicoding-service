@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<!-- 文章内容 -->
+<section
+        th:fragment="article_info(article, author, other, payUsers)"
+        class="article-info-wrap com-2-panel col-2-article J-articlePanel"
+>
+    <span class="com-2-mark-triangle article-mark">
+      <span class="mark-cnt">原创</span>
+    </span>
+  <div
+          id="postsTitle"
+          class="article-info-title"
+          th:data-id="${article.articleId}"
+          th:text="${article.title}"
+  >
+    标题
+  </div>
+  <div>
+    <div class="detail-content-title-other-wrap relative" th:if="${author != null}">
+      <img th:src="${author.photo}" class="detail-content-title-other-img" />
+      <a
+              th:href="${'/user/' + author.userId}"
+              th:text="${author.userName}"
+              class="detail-content-title-other-name"
+      >
+        作者
+      </a>
+
+      <span
+              th:text="${T(com.github.paicoding.forum.core.util.DateUtil).time2day(article.createTime)}"
+              class="detail-content-title-other-time"
+      >
+          更新时间
+        </span>
+      <span th:text="'阅读 ' + ${article.count.readCount}">520</span>
+      <span th:if="${article.status != 1}">
+            <span th:text="${article.status == 0 ? '(草稿)' : '(审核中)'}" style="padding-left: 1em; color: red"></span>
+        </span>
+      <div
+              th:if="${global.isLogin && article.author == global.user.userId}"
+              class="detail-content-title-edit"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+          <symbol id="edit-svg" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path class="cls-1" d="M9 1H3a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V7h-1v6a1 1 0 01-1 1H3a1 1 0 01-1-1V3a1 1 0 011-1h6V1z" />
+            <path class="cls-1" d="M12 2.41L13.59 4l-6 6H6V8.41l6-6M12 1L5 8v3h3l7-7-3-3z" />
+          </symbol>
+        </svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+          <symbol id="delete-svg" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path class="cls-1" d="M13 3h-2V1H5v2H2v1h1v9a2 2 0 002 2h6a2 2 0 002-2V4h1V3zM6 2h4v1H6zm5 12H5a1 1 0 01-1-1V4h8v9a1 1 0 01-1 1z" />
+            <path class="cls-1" d="M6 6h1v6H6zm3 0h1v6H9z" />
+          </symbol>
+        </svg>
+
+        <a th:href="${'/article/edit?articleId=' + article.articleId}" class="com-opt-link link-edit">
+          <svg class="com-i-edit">
+            <use xlink:href="#edit-svg"></use>
+          </svg>编辑
+        </a>
+
+        <a href="javascript:;" data-target="#deleteModal" data-toggle="modal" class="com-opt-link link-delete ml-3">
+          <svg class="com-i-delete">
+            <use xlink:href="#delete-svg"></use>
+          </svg>删除
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="articleContent" class="article-content" th:utext="${article.content}">
+  </div>
+
+  <!-- 左右切换 -->
+  <div class="article-change direction" th:if="${other.flip != null}">
+    <a class="step-btn--prev"
+       th:href="${other.flip.prevHref}"
+       th:if="${other.flip.prevShow}"
+    >
+      <div class="article-change-item">
+        <svg
+                t="1670064682276"
+                class="icon"
+                viewBox="0 0 1024 1024"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                p-id="9458"
+                width="32"
+                height="32"
+        >
+          <path
+                  d="M671.968176 911.99957c-12.287381 0-24.576482-4.67206-33.951566-14.047144L286.048434 545.984249c-18.751888-18.719204-18.751888-49.12028 0-67.872168L638.016611 126.111222c18.751888-18.751888 49.12028-18.751888 67.872168 0 18.751888 18.719204 18.751888 49.12028 0 67.872168l-318.016611 318.047574L705.888778 830.047574c18.751888 18.751888 18.751888 49.12028 0 67.872168C696.544658 907.32751 684.255557 911.99957 671.968176 911.99957z"
+                  p-id="9459"
+                  fill="#ffffff"
+          ></path>
+        </svg>
+      </div>
+    </a>
+    <a class="step-btn--next"
+       th:href="${other.flip.nextHref}"
+       th:if="${other.flip.nextShow}"
+    >
+      <div class="article-change-item">
+        <svg
+                t="1670064662589"
+                class="icon"
+                viewBox="0 0 1024 1024"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                p-id="8352"
+                width="32"
+                height="32"
+        >
+          <path
+                  d="M761.055557 532.128047c0.512619-0.992555 1.343475-1.823411 1.792447-2.848649 8.800538-18.304636 5.919204-40.703346-9.664077-55.424808L399.935923 139.743798c-19.264507-18.208305-49.631179-17.344765-67.872168 1.888778-18.208305 19.264507-17.375729 49.631179 1.888778 67.872168l316.960409 299.839269L335.199677 813.631716c-19.071845 18.399247-19.648112 48.767639-1.247144 67.872168 9.407768 9.791372 21.984142 14.688778 34.560516 14.688778 12.000108 0 24.000215-4.479398 33.311652-13.439914l350.048434-337.375729c0.672598-0.672598 0.927187-1.599785 1.599785-2.303346 0.512619-0.479935 1.056202-0.832576 1.567101-1.343475C757.759656 538.879828 759.199462 535.391265 761.055557 532.128047z"
+                  p-id="8353"
+                  fill="#ffffff"
+          ></path>
+        </svg>
+      </div>
+    </a>
+  </div>
+
+  <div th:if="${other.readType == 1 && !global.isLogin}">
+    <div class="needlock">
+      <a class="btn-readmore no-login underline" data-target="#loginModal" data-toggle="modal">
+        <span>登录之后即可阅读全文</span>
+      </a>
+    </div>
+  </div>
+
+  <div th:if="${other.readType == 4 && article.canRead != null && article.canRead == false}">
+    <div class="needlock" style="text-align: center">
+      <a class="btn-readmore no-login underline" data-target="#payInfoModal" data-toggle="modal">
+        <button type="button" class="c-btn" onclick="showPayModal()">打赏之后立即解锁阅读全文🔐</button>
+      </a>
+    </div>
+  </div>
+
+  <div th:if="${other.readType == 4}" class="container text-right">
+    <button class="c-btn c-btn-hole" style="border-radius: 1.5em;" th:text="'去打赏'" th:if="${payUsers == null}" onclick="showPayModal()">15人已赏</button>
+    <button class="c-btn c-btn-hole" style="border-radius: 1.5em;" th:text="${payUsers.size()} + '人已赏'" th:if="${payUsers != null}" onclick="showPayUserInfo()">15人已赏</button>
+  </div>
+
+  <div th:if="${other.readType == 3 && !(global.user != null && global.user.starStatus.code == 2)}">
+    <div class="needlock">
+      <a class="btn-readmore no-login underline" href="#" target="_blank" data-target="#registerModal" data-toggle="modal">
+        <H2>已加入二哥编程星球，即刻绑定星球编号解锁🔐</H2>
+      </a>
+    </div>
+  </div>
+
+  <!-- 打赏支付  -->
+  <div class="modal fade"
+       id="payModel"
+       data-backdrop="static"
+       data-keyboard="false"
+       tabindex="-1"
+       role="dialog"
+       aria-labelledby="deleteModalDropLabel"
+       aria-hidden="true"
+       th:if="${other.readType == 4 && article.canRead != null && article.canRead == false}"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <a href="https://t.zsxq.com/11YwgyGmC" target="_blank">
+            <h5 class="modal-title" id="payInfoModel">打赏解锁阅读全文</h5>
+          </a>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div th:replace="views/user/pay/payShow :: user_pay(${author.payQrCodes})"></div>
+        </div>
+        <div class="modal-footer">
+          <a href="#" data-target="#payInfoModal" data-toggle="modal" type="button" class="btn btn-primary"
+             data-dismiss="modal" onclick="hasPaying()">
+            已完成打赏
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 打赏列表 -->
+  <div class="modal fade"
+       id="payUserModel"
+       data-backdrop="static"
+       data-keyboard="false"
+       tabindex="-1"
+       role="dialog"
+       aria-labelledby="deleteModalDropLabel"
+       aria-hidden="true"
+       th:if="${other.readType == 4}"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <a href="https://t.zsxq.com/11YwgyGmC" target="_blank">
+            <h5 class="modal-title">打赏用户列表</h5>
+          </a>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="praise-photos">
+            <div class="approval-box" id="praiseUsers">
+              <a class="g-user-popover approval-img" th:href="'/user/' + ${item.userId}"
+                 th:each="item: ${payUsers}">
+                <img th:src="${item.avatar}" style="width: 120px;padding: 10px">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="#" data-target="#payInfoModal" data-toggle="modal" type="button" class="btn btn-primary"
+             data-dismiss="modal" onclick="redirctPayModal()">
+            去打赏
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 星球详情  -->
+  <div class="modal fade"
+       id="starModel"
+       data-backdrop="static"
+       data-keyboard="false"
+       tabindex="-1"
+       role="dialog"
+       aria-labelledby="deleteModalDropLabel"
+       aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <a href="https://t.zsxq.com/11YwgyGmC" target="_blank">
+            <h5 class="modal-title" id="startModel">该文档仅「二哥编程星球」的VIP用户可见</h5>
+          </a>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div  class="content join-star">
+            <p >二哥的编程星球内容包括：</p>
+            <p ><span class="category">1. 付费文档</span>: 技术派、MYDB 等项目配套的 120+篇教程查看权限</p>
+            <p ><span class="category">2. 面试指南</span>: 校招、社招的 40 万+字面试求职攻略</p>
+            <p ><span class="category">3. 智能助手</span>: 无限期使用派聪明 AI 助手，已对接讯飞星火和 ChatGPT双通道，不用花 1 分钱</p>
+            <p ><span class="category">4. 专属问答</span>: 向二哥 1v1 发起提问，内容不限于 offer 选择、学习路线、职业规划等</p>
+            <p ><span class="category">5. 简历修改</span>: 提供简历修改服务，附赠星球 100+优质简历模板可供参考</p>
+            <p ><span class="category">6. 学习环境</span>: 打造一个沉浸式的学习环境，有一种高考冲刺、大学考研的氛围</p> <br >
+            <img  src="https://cdn.tobebetterjavaer.com/paicoding/image-fdae281151294c18a14563846393465d.jpg" alt="二哥的星球" style="cursor: zoom-in;width: 100%"> <br >
+            <p >》步骤①：微信扫描上方二维码，点击「加入知识星球」按钮</p>
+            <p >》步骤②：访问星球置顶帖球友必看：
+              <a class="underline" href="https://t.zsxq.com/11rEo9Pdu" target="_blank">https://t.zsxq.com/11rEo9Pdu</a>，获取项目配套文档的语雀访问地址和密码</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="#" data-target="#registerModal" data-toggle="modal" type="button" class="btn btn-primary" data-dismiss="modal">
+            已加入星球，绑定星球编号
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 删除文章再次确认 Modal -->
+  <div class="modal fade"
+       id="deleteModal"
+       data-backdrop="static"
+       data-keyboard="false"
+       tabindex="-1"
+       role="dialog"
+       aria-labelledby="deleteModalDropLabel"
+       aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalDropLabel">删除提醒</h5>
+          <button type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p th:text="${'确定删除《' + article.title + '》吗'}">确定删除吗？</p>
+        </div>
+        <div class="modal-footer">
+          <button id="deleteBtn" type="button" class="btn btn-primary">
+            确定
+          </button>
+          <button type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal">
+            取消
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  点赞放这里-->
+  <div th:replace="components/article/praise :: praise(${article})"></div>
+  <script th:inline="javascript">
+    // 删除文章
+    let id = [[${article.articleId}]]
+    $('#deleteBtn').click(function () {
+      get("/article/api/delete?articleId=" + id, {}, function (data) {
+        // 删除文章成功，跳转到首页
+        window.location.href = "/";
+      });
+    });
+
+    // 高亮代码
+    hljs.addPlugin({
+      'after:highlightElement': ({ el, result }) => {
+        // move the language from the result into the dataset
+        el.setAttribute('lang', result.language);
+        el.classList.add('copyable');
+
+        // 创建复制代码按钮
+        const copyBtn = document.createElement('span');
+        copyBtn.classList.add('copy-code-btn');
+        copyBtn.textContent = '复制代码';
+
+        // 将复制代码按钮添加到代码块后
+        el.parentNode.insertBefore(copyBtn, el.nextSibling);
+      }
+    });
+    hljs.highlightAll();
+
+    const clipboard = new ClipboardJS('.copy-code-btn', {
+      target: function(trigger) {
+        return trigger.previousElementSibling;
+      }
+    });
+
+    clipboard.on('success', function(e) {
+      // 复制成功
+      toastr.info("复制成功");
+      e.clearSelection();
+    });
+
+    clipboard.on('error', function(e) {
+      console.log('复制失败');
+    });
+
+    // 星球文章的权限控制
+    console.log("实体内容:", [[${article}]])
+    let loginRead = [[${other.readType}]];
+    let user = [[${global.user}]];
+    if (loginRead == 3) {
+      console.log(loginRead, user)
+      if (user == null) {
+        // 未加入星球，展示弹窗
+        $('#starModel').modal('show');
+      } else {
+        if (user.starStatus == "FORMAL") {
+
+        } else if(user.starStatus == "TRYING"){
+
+        } else {
+          $('#starModel').modal('show');
+        }
+      }
+    } else if (loginRead == 4) {
+      // 对于付费阅读场景
+      if (![[${article.canRead}]]) {
+        if (user == null) {
+          // 未登录时，弹出登录窗口
+          $('#loginModal').modal('show')
+        }
+      }
+    }
+
+
+    // -------------------------------------- 下面是打赏支付、解锁全文的逻辑 -------------------------------------------
+
+    function showPayUserInfo() {
+      // 显示打赏用户信息
+      $('#payUserModel').modal('show');
+    }
+
+    function redirctPayModal() {
+      $('#payUserModel').modal('hide');
+      showPayModal();
+    }
+
+    // 显示支付窗口
+    let payId;
+    function showPayModal() {
+      $('#payModel').modal('show');
+      let notesDiv = $('#mark')
+      let notes;
+      if (notesDiv) {
+        notes = notesDiv.val()
+      } else {
+        notes = ''
+      }
+
+      // 调用后端接口，用于创建一个打赏记录
+      get("/article/api/pay/toPay", {"articleId": id, "notes": notes}, (res) => {
+        console.log("打赏关联记录:", res);
+        payId = res.payId;
+      })
+    }
+
+    function hasPaying() {
+
+      // 标记为已经支付完成
+      if (payId) {
+        get("/article/api/pay/paying", {"payId": payId, "succeed": true}, (res) => {
+          toastr.info("支付结果的验证需要一点点时间，请耐心等候~");
+          $('#payModel').modal('hide');
+        })
+      } else {
+        // 没有支付id，重新创建一个
+        get("/article/api/pay/toPay", {"articleId": id}, (res) => {
+          payId = res.payId;
+          get("/article/api/pay/paying", {"payId": res.payId, "succeed": true}, (res) => {
+            toastr.info("支付结果的验证需要一点点时间，请耐心等候~");
+            $('#payModel').modal('hide');
+          })
+        })
+      }
+    }
+
+  </script>
+</section>
+</html>
