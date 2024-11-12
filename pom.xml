@@ -10,6 +10,7 @@
         <module>paicoding-core</module>
         <module>paicoding-api</module>
         <module>ps-common</module>
+        <module>ps-api</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -42,10 +43,29 @@
         <opencv.version>4.6.0-0</opencv.version>
         <sensitive.version>0.8.0</sensitive.version>
         <jwt.version>4.4.0</jwt.version>
+
+        <spring-cloud.version>2021.0.3</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.0.4.0</spring-cloud-alibaba.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!--spring cloud-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--spring cloud alibaba-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>com.github.paicoding.forum</groupId>
                 <artifactId>paicoding-api</artifactId>
