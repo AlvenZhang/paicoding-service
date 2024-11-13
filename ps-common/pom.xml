@@ -225,6 +225,12 @@
             <artifactId>dashscope-sdk-java</artifactId>
             <version>2.16.2</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring5</artifactId>
+<!--            <scope>provided</scope>-->
+        </dependency>
     </dependencies>
 
 

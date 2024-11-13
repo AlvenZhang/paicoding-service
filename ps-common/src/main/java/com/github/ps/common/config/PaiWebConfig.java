@@ -1,7 +1,7 @@
-package com.github.paicoding.forum.web.config;
+package com.github.ps.common.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.paicoding.forum.core.util.JsonUtil;
+import com.github.ps.common.util.JsonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -10,8 +10,7 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.ReflectionUtils;
-import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.spring5.dialect.SpringStandardDialect;
 import org.thymeleaf.standard.serializer.IStandardJavaScriptSerializer;

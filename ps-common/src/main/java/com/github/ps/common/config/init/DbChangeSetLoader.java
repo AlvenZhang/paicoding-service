@@ -1,4 +1,4 @@
-package com.github.paicoding.forum.web.config.init;
+package com.github.ps.common.config.init;
 
 import org.springframework.core.io.ClassPathResource;
 import org.xml.sax.Attributes;

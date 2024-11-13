@@ -1,16 +1,10 @@
 package com.github.paicoding.forum.test.mysql1;
 
 import com.github.paicoding.forum.test.BasicTest;
-import com.github.paicoding.forum.web.QuickForumApplication;
 import com.github.paicoding.forum.web.config.init.DbChangeSetLoader;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;

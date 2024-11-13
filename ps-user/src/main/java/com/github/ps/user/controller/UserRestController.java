@@ -1,5 +1,6 @@
 package com.github.ps.user.controller;
 
+import com.github.ps.user.component.TemplateEngineHelper;
 import com.github.ps.common.context.ReqInfoContext;
 import com.github.ps.common.domain.NextPageHtmlVo;
 import com.github.ps.common.domain.ResVo;
@@ -40,8 +41,8 @@ public class UserRestController {
     private TemplateEngineHelper templateEngineHelper;
 
 
-    @Resource
-    private ArticleReadService articleReadService;
+//    @Resource
+//    private ArticleReadService articleReadService;
 
 
     /**
@@ -96,7 +97,9 @@ public class UserRestController {
 
         if (pageSize == null) pageSize = PageParam.DEFAULT_PAGE_SIZE;
         PageParam pageParam = PageParam.newPageInstance(page, pageSize);
-        PageListVo<ArticleDTO> dto = articleReadService.queryArticlesByUserAndType(userId, pageParam, select);
+        // TODO 等待引入Feign之后再调用
+//        PageListVo<ArticleDTO> dto = articleReadService.queryArticlesByUserAndType(userId, pageParam, select);
+        PageListVo<ArticleDTO> dto = null;
         String html = templateEngineHelper.renderToVo("views/user/articles/index", "homeSelectList", dto);
         return ResVo.ok(new NextPageHtmlVo(html, dto.getHasMore()));
     }

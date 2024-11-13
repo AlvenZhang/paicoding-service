@@ -1,4 +1,4 @@
-package com.github.paicoding.forum.web.config;
+package com.github.ps.common.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
